@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { use, useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
+import Write from "./content/Write/Write";
+import Postlist from "./content/Postlist/Postlist";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [count, setCount] = useState([0, 0, 0]);
+  let [titles, setTitles] = useState([
+    "남자 코트 추천",
+    "여자 코트 추천",
+    "강남 우동 맛집",
+  ]);
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="App">
+      <div className="black-nav">
+        <div>
+          <Link to="/">Geuni</Link>
+        </div>
+        <div></div>
+        <div></div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="main">
+        <div className="title_image">
+          <video
+            src="../public/main_video.mp4"
+            muted
+            autoPlay
+            loop
+            type="video/mp4"
+          ></video>
+        </div>
+        <Routes>
+          <Route path="/content/Postlist" element={<Postlist />} />
+          <Route path="/content/Write" element={<Write />} />
+        </Routes>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <Link to="/content/Postlist">home</Link>
+      <Link to="/content/Write">zz</Link>
+    </div>
+  );
 }
 
-export default App
+export default App;
