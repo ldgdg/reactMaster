@@ -1,8 +1,8 @@
 import { use, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter, Link } from "react-router-dom";
-import Write from "./content/Write/Write";
-import Postlist from "./content/Postlist/Postlist";
+import Write from "./Write";
+import Postlist from "./Postlist";
 import "./App.css";
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
       <div className="main">
         <div className="title_image">
           <video
-            src="../public/main_video.mp4"
+            src="./main_video.mp4"
             muted
             autoPlay
             loop
@@ -32,12 +32,12 @@ function App() {
           ></video>
         </div>
         <Routes>
-          <Route path="/content/Postlist" element={<Postlist />} />
-          <Route path="/content/Write" element={<Write />} />
+          <Route path="/Postlist" element={<Postlist />} />
+          <Route path="/Write" element={<Write />} />
         </Routes>
       </div>
-      <Link to="/content/Postlist">home</Link>
-      <Link to="/content/Write">zz</Link>
+      <Link to="/Postlist">home</Link>
+      <Link to="/Write">zz</Link>
     </div>
   );
 }
